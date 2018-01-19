@@ -1,0 +1,5 @@
+这是一个提供服务的项目。
+application.properties
+单独的项目可以部署多次，只要修改对应的server.port即可在一台机器上部署。也可部署到多台机器上。
+spring.application.name是项目名称，在多部署的时候一定要保证名称一致，否则无法提供对应的服务。
+eureka.client.service-url.defaultZone服务注册和发现的地址。
