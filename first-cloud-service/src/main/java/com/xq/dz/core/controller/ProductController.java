@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.xq.dz.core.model.Product;
+import com.xq.dz.model.Product;
 
 @RestController
 @RequestMapping("/products")
@@ -23,12 +24,12 @@ public class ProductController {
 	@Value("${server.port}")
 	private int serverPort = 0;
 
-	@RequestMapping(value = "/{itemCode}", method = RequestMethod.GET)
+	@GetMapping(value = "/{itemCode}")
 	public Product detail(@PathVariable String itemCode) {
 		List<Product> products = this.buildProducts();
 		for (Product product : products) {
 			if (product.getItemCode().equalsIgnoreCase(itemCode))
-			return product;
+				return product;
 		}
 		return null;
 	}

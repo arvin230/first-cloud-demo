@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.xq.dz.consumer.service.ProductService;
-import com.xq.dz.core.model.Product;
+import com.xq.dz.model.Product;
 
 @Component
 public class ProductServiceFallback implements ProductService {

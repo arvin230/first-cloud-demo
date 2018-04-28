@@ -1,4 +1,4 @@
-package com.xq.dz.core.model;
+package com.xq.dz.model;
 
 import java.io.Serializable;
 

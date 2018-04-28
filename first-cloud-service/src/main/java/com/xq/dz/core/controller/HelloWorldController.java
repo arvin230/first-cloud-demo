@@ -2,8 +2,7 @@ package com.xq.dz.core.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.netflix.appinfo.EurekaInstanceConfig;
@@ -17,11 +16,11 @@ public class HelloWorldController {
 	@Value("${server.port}")
 	private int serverPort = 0;
 
-	@RequestMapping(value = "/hello", method = RequestMethod.GET)
+	@GetMapping(value = "/hello")
 	public String hello() {
 		LOG.COMMON_LOG.info("/hello, instanceId:{}, host:{}", eurekaInstanceConfig.getInstanceId(),
 				eurekaInstanceConfig.getHostName(false));
 		return "Hello, Spring Cloud! My port is " + String.valueOf(serverPort);
 	}
-	
+
 }

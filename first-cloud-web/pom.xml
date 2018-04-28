@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -8,62 +10,76 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>first-cloud-consumer</artifactId>
+	<artifactId>first-cloud-web</artifactId>
 	<packaging>jar</packaging>
 
-	<name>first-cloud-consumer</name>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<first-cloud-service.version>0.0.1-SNAPSHOT</first-cloud-service.version>
-	</properties>
+	<name>first-cloud-web</name>
 
 	<dependencies>
+		<!-- -->
+		<dependency>
+			<groupId>com.xq.dz</groupId>
+			<artifactId>first-cloud-entity</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<!-- spring cloud -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<!-- 服务治理 begin -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka</artifactId>
 		</dependency>
+		<!-- 服务治理 end -->
+
+		<!-- 客户端负载均衡 begin -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-ribbon</artifactId>
 		</dependency>
+		<!-- 客户端负载均衡 end -->
+
+		<!-- 声明式服务调用 begin -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-feign</artifactId>
 		</dependency>
+		<!-- 声明式服务调用 end -->
+
+		<!-- Hystrix容错 begin -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-hystrix</artifactId>
 		</dependency>
+		<!-- Hystrix容错 end -->
+
+		<!-- Hystrix信息流监控 begin -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<!-- Hystrix信息流监控 end -->
 
 		<dependency>
-			<groupId>com.xq.dz</groupId>
-			<artifactId>first-cloud-service</artifactId>
-			<version>${first-cloud-service.version}</version>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
 		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
-			<!-- spring-boot -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<!-- mybatis-generator-maven-plugin -->
-			<plugin>
-				<groupId>org.mybatis.generator</groupId>
-				<artifactId>mybatis-generator-maven-plugin</artifactId>
-			</plugin>
-			<!-- myeclipse-maven-compiler-plugin -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-			</plugin>
 		</plugins>
 	</build>
+
+
 </project>

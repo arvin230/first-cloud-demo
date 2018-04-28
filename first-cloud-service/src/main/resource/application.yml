@@ -1,0 +1,17 @@
+server:
+  port: 8261
+#  port: 8262
+spring:
+# The same name service can be load balancing
+  application:
+    name: SERVICE-CLIENT
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8
+#    username: root
+#    password: weimob@1234
+#    driver-class-name: com.mysql.jdbc.Driver
+# Address of service registration and discovery
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8260/eureka

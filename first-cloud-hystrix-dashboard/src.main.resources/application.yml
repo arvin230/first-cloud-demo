@@ -1,0 +1,12 @@
+server:
+  port: 8265
+#  port: 8266
+spring: 
+# 相同的服务名可以进行负载均衡
+  application:
+    name: CONSUMER-DASHBOARD
+# 负载均衡配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8260/eureka

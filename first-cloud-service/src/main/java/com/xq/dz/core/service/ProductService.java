@@ -1,4 +1,4 @@
-package com.xq.dz.consumer.service;
+package com.xq.dz.core.service;
 
 import java.util.List;
 
@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.xq.dz.consumer.service.impl.ProductServiceFallback;
-import com.xq.dz.core.model.Product;
+import com.xq.dz.core.service.impl.ProductServiceFallback;
+import com.xq.dz.model.Product;
 
-@FeignClient(name = "SERVICE-Arvin", fallback = ProductServiceFallback.class)
+@FeignClient(name = "SERVICE-CLIENT", fallback = ProductServiceFallback.class)
 public interface ProductService {
 
 	@RequestMapping(value = "/products", method = RequestMethod.GET)
